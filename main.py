@@ -1,81 +1,101 @@
-'''
-2 Formato da Entrada e Saída
+from funcoes.funcao_1 import pares_antes_de_impares
+from funcoes.funcao_2 import pares_antes_de_impares_em_ordem_crescente
+from funcoes.funcao_3 import intercala_duas_listas
+from funcoes.funcao_4 import intercala_sem_repeticao
+from funcoes.funcao_5 import intercalar_tres_listas
 
-A entrada consistirá de uma sequência com um número arbitrário de operações. 
-O programa deve ler as operações e executá-las (gerar suas saídas). 
-A última operação é a de término de sequência
-(indicada abaixo).
-Todas as sequências conterão apenas números inteiros.
-As operações e seus formatos são:
-'''
-'''
-1. pares antes de ímpares na ordem em que aparecem:
-essa operação consistirá de duas linhas:
-    a primeira conterá apenas a letra ’a’; 
-    a segunda conterá uma lista de números inteiros.
+var = input()
 
-Essa operação imprime na saída os números pares e, em seguida, os ímpares. 
-Os números pares e ímpares devem aparecer na ordem relativa em que aparecem na lista original. 
-Os números devem ser separados por um espaço.
+#questão 1
+if(var == 'a'):
+    lista = input()
+    lista = lista.split()
+    lista_de_numeros = []
 
-Na linha seguinte, o programa deve gerar na saída a sequência "media dos pares:", seguida por um espaço, seguido do valor da média dos números pares, com uma casa decimal.
+    for item in lista:
+        numero = int(item)
+        lista_de_numeros.append(numero)
 
-Na terceira linha, o programa deve gerar na saída a sequência "media dos impares:", seguida por um espaço, seguido do valor da média dos números ímpares, com uma casa decimal.
-'''
+    pares_antes_de_impares(lista_de_numeros)
 
-def pares_antes_de_impares(lista):
+#questão 2
+if(var == 'o'):
+    lista = input()
+    lista = lista.split()
+    lista_de_numeros = []
 
-    lista_par=[]
-    soma_par=0
-    media_par=0
+    for item in lista:
+        numero = int(item)
+        lista_de_numeros.append(numero)
 
-    lista_imp=[]
-    soma_imp=0
-    media_imp=0
+    pares_antes_de_impares_em_ordem_crescente(lista_de_numeros)
 
-    print('a')
+#questão 3
+if(var == 'i'):
+    lista1 = input()
+    lista1 = lista1.split()
+    lista1_de_numeros = []
 
-#varre a lista para separar os pares dos impares.
-    for i in range(len(lista)):
-        if(lista[i] % 2 == 0):
-            lista_par.append(lista[i])
-        else:
-            lista_imp.append(lista[i])
+    for item in lista1:
+        numero = int(item)
+        lista1_de_numeros.append(numero)
 
-#mostra a lista separada pares e impares
-    for i in range(len(lista_par)):
-        print(lista_par[i], end=' ')
+    lista2 = input()
+    lista2 = lista2.split()
+    lista2_de_numeros = []
 
-    for i in range(len(lista_imp)):
-        print(lista_imp[i], end=' ')
+    for item in lista2:
+        numero = int(item)
+        lista2_de_numeros.append(numero)
 
-    print('')
+    intercala_duas_listas(lista1_de_numeros, lista2_de_numeros)
 
-    for i in range(len(lista_par)):
-        soma_par += lista_par[i]
+#questão 4
+if(var == 's'):
+    lista1 = input()
+    lista1 = lista1.split()
+    lista1_de_numeros = []
 
-    for i in range(len(lista_imp)):
-        soma_imp += lista_imp[i]
+    for item in lista1:
+        numero = int(item)
+        lista1_de_numeros.append(numero)
 
+    lista2 = input()
+    lista2 = lista2.split()
+    lista2_de_numeros = []
 
-#testa se a lista é 0 pq não da para dividir por 0
-#constroi a media dos pares e impares
-    if(len(lista_par) > 0):
-        media_par = soma_par / len(lista_par)
-        print(f'Media dos pares: {media_par:.1f}')
-    else:
-        print(f'Media dos pares: 0.0')
+    for item in lista2:
+        numero = int(item)
+        lista2_de_numeros.append(numero)
 
+    intercala_sem_repeticao(lista1_de_numeros, lista2_de_numeros)
 
-    if(len(lista_imp) > 0):
-        media_imp = soma_imp / len(lista_imp)
-        print(f'Media dos impares: {media_imp:.1f}')
-    else:
-        print(f'Media dos impares: 0.0')
+#questão 5 
+if(var == 'j'):
+    lista1 = input()
+    lista1 = lista1.split()
+    lista1_de_numeros = []
 
+    for item in lista1:
+        numero = int(item)
+        lista1_de_numeros.append(numero)
 
-l=[1,2,3,4,5]
+    lista2 = input()
+    lista2 = lista2.split()
+    lista2_de_numeros = []
 
-pares_antes_de_impares(l)
+    for item in lista2:
+        numero = int(item)
+        lista2_de_numeros.append(numero)
+    
+    lista3 = input()
+    lista3 = lista3.split()
+    lista3_de_numeros = []
+
+    for item in lista3:
+        numero = int(item)
+        lista3_de_numeros.append(numero)
+
+    intercalar_tres_listas(lista1_de_numeros, lista2_de_numeros, lista3_de_numeros)
 
 
