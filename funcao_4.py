@@ -1,17 +1,7 @@
-'''
-intercala sem repetição: 
-#ENTRADA
-essa operação consistirá de três linhas: 
-a primeira conterá apenas a letra ’s’; 
-a segunda e a terceira conterão, cada uma, uma lista de números inteiros.
-
-Essa operação é semelhante à operação anterior, mas, na lista intercalada final, não pode haver números repetidos. Ou seja, se um número ocorrer mais do que uma vez, considerando as duas listas juntas, ele deve aparecer apenas uma vez na lista final. 
-
-A primeira ocorrência de cada número repetido é a que deve aparecer na lista final.
-'''
-
 def intercala_sem_repeticao(l1,l2):
     lista=[]
+    cont_par=0
+    cont_imp=0
     lista_sem_rep=[]
 
     if(len(l1) > len(l2)):
@@ -34,4 +24,20 @@ def intercala_sem_repeticao(l1,l2):
 #mostra a lista intercalada
     for item in lista_sem_rep:
         print(item, end=' ')
+
+# contar os pares e impares
+    for item in lista_sem_rep:
+        if(item % 2 == 0):
+            cont_par+=1
+        else:
+            cont_imp+=1
+    
+    print()
+    if(len(lista) > 0):
+        print(f'maior valor: {max(lista)}')
+    else:
+        print(f'maior valor: ')
+
+    print(f'quantidade de pares: {cont_par}')
+    print(f'quantidade de impares: {cont_imp}')
 

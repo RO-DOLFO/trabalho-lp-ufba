@@ -1,15 +1,3 @@
-'''
-pares antes de ímpares em ordem crescente:
-
-#entrada
-essa operação consistirá de duas linhas: aprimeira conterá apenas a letra ’o’; 
-a segunda conterá uma lista de números inteiros.
-
-#saida
-Essa operação é semelhante à operação anterior, com a diferença de que os números pares e os
-números ímpares devem estar em ordem crescente, considerando separadamente cada um dos
-tipos de números. Ou seja, os pares devem estar ordenados e, em seguida, os ímpares ordenados.
-'''
 def pares_antes_de_impares_em_ordem_crescente(lista):
 
     lista_par=[]
@@ -36,3 +24,26 @@ def pares_antes_de_impares_em_ordem_crescente(lista):
 
     for i in range(len(lista_imp)):
         print(lista_imp[i], end=' ')
+
+    print('')
+
+    for i in range(len(lista_par)):
+        soma_par += lista_par[i]
+
+    for i in range(len(lista_imp)):
+        soma_imp += lista_imp[i]
+
+
+#testa se a lista é 0 pq não da para dividir por 0
+#constroi a media dos pares e impares
+    if(len(lista_par) > 0):
+        media_par = soma_par / len(lista_par)
+        print(f'media dos pares: {media_par:.1f}')
+    else:
+        print(f'media dos pares: 0.0')
+
+    if(len(lista_imp) > 0):
+        media_imp = soma_imp / len(lista_imp)
+        print(f'media dos impares: {media_imp:.1f}')
+    else:
+        print(f'media dos impares: 0.0')

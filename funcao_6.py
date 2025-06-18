@@ -1,41 +1,31 @@
-'''
-ordena por frequência de ocorrência:
-
-#entrada
-essa operação consistirá de duas linhas: 
-a primeira conterá apenas a letra ’f’; 
-a segunda conterá uma lista de números inteiros. 
-
-#saida
-Essa operação gera, na saída, os números por ordem crescente de frequência de ocorrência.
-Os números que ocorrerem mais de uma vez devem aparecer uma única vez na saída.
-
-Após cada número deve aparecer um espaço, seguido da quantidade de vezes em que ocorre, entre parênteses. 
-
-Por exemplo, suponha que o número 4 ocorra cinco vezes na lista e o número 10, uma vez. A saída deve ser: 10 (1) 4 (5). Os números com mesma frequência de ocorrência devem aparecer em ordem crescente.
-'''
-
 def ordena_por_frequencia_de_ocorrencia(l1):
-    lista_sem_rep=[]
-    cont=0
 
-    for i in range(len(l1)):
-        if(l1[i] == l1[i]+1):
-            cont+=1
+    dicionario = {}
 
-# tira as repetições 
-    for item in l1:
-        if(item not in lista_sem_rep):
-            lista_sem_rep.append(item)
+    for numero in l1:
+        if numero in dicionario:
+            dicionario[numero] += 1
+        else:
+            dicionario[numero] = 1
 
-# mostra a lista sem repetições
-    for i in lista_sem_rep:
-        print(i, end=' ')
+    # Transforma em listas para ordenar
+    numeros = list(dicionario.keys())
+    frequencias = list(dicionario.values())
 
-    print('')
-#lista full
-    for i in range(len(l1)):
-        print(l1[i], end=' ')
+    # Ordenação manual (bolha) por frequência e depois por valor
+    n = len(numeros)
 
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            # Se a frequência atual é maior que a próxima, troca
+            if frequencias[j] > frequencias[j + 1]:
+                frequencias[j], frequencias[j + 1] = frequencias[j + 1], frequencias[j]
+                numeros[j], numeros[j + 1] = numeros[j + 1], numeros[j]
+            # Se frequência for igual, ordena pelo número menor
+            elif frequencias[j] == frequencias[j + 1] and numeros[j] > numeros[j + 1]:
+                numeros[j], numeros[j + 1] = numeros[j + 1], numeros[j]
 
-#teste
+    # Impressão no formato pedido
+    for i in range(n):
+        print(f"{numeros[i]} ({frequencias[i]})", end=' ')
+    print("")
